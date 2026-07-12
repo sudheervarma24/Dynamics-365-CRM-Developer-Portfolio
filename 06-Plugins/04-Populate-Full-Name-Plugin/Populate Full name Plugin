@@ -1,0 +1,300 @@
+# Populate Full Name Plugin
+
+## Overview
+
+The **Populate Full Name Plugin** is a Microsoft Dynamics 365 CRM plugin developed using C#. It automatically populates the **Full Name** field by concatenating the **First Name** and **Last Name** whenever a new record is created.
+
+This project demonstrates the complete plugin development lifecycle, including creating a Class Library, implementing the `IPlugin` interface, building a DLL, registering the plugin, and testing the functionality in Dynamics 365.
+
+---
+
+# Business Requirement
+
+When a user creates a new record:
+
+| Field | Value |
+|-------|-------|
+| First Name | Sudheer |
+| Last Name | Varma |
+
+The plugin should automatically populate:
+
+| Field | Value |
+|-------|-------|
+| Full Name | Sudheer Varma |
+
+---
+
+# Learning Objectives
+
+After completing this project, you will understand:
+
+- Creating a Dynamics 365 Plugin
+- Implementing the `IPlugin` interface
+- Reading field values from the Target entity
+- Updating CRM attributes
+- Using `IPluginExecutionContext`
+- Using `ITracingService`
+- Using `IOrganizationService`
+- Building a signed DLL
+- Registering a Plugin Assembly
+- Registering a Plugin Step
+- Testing Plugin execution
+
+---
+
+# Technologies Used
+
+- Microsoft Dynamics 365 CRM
+- C#
+- .NET Framework 4.6.2
+- Visual Studio 2022
+- Microsoft.Xrm.Sdk
+- Plugin Registration Tool
+
+---
+
+# Project Workflow
+
+```text
+Create Plugin Project
+        │
+        ▼
+Add CRM SDK References
+        │
+        ▼
+Implement IPlugin
+        │
+        ▼
+Write Business Logic
+        │
+        ▼
+Sign Assembly
+        │
+        ▼
+Build DLL
+        │
+        ▼
+Register Plugin
+        │
+        ▼
+Register Plugin Step
+        │
+        ▼
+Test Plugin
+```
+
+---
+
+# Business Logic
+
+The plugin performs the following operations:
+
+1. Reads **First Name**
+2. Reads **Last Name**
+3. Concatenates both values
+4. Updates the **Full Name** field
+5. Saves the record
+
+Formula:
+
+```text
+Full Name = First Name + " " + Last Name
+```
+
+---
+
+# Plugin Execution Flow
+
+```text
+User Creates Record
+        │
+        ▼
+Plugin Triggered
+        │
+        ▼
+Read First Name
+        │
+        ▼
+Read Last Name
+        │
+        ▼
+Generate Full Name
+        │
+        ▼
+Update Target Entity
+        │
+        ▼
+Record Saved
+```
+
+---
+
+# CRM Entity
+
+**Entity**
+
+```
+Sud - Plugin Practice
+```
+
+Fields
+
+| Display Name | Schema Name |
+|--------------|-------------|
+| First Name | sud_firstname |
+| Last Name | sud_lastname |
+| Full Name | sud_name |
+
+---
+
+# Plugin Components
+
+The plugin uses the following CRM SDK interfaces:
+
+| Interface | Purpose |
+|------------|----------|
+| IServiceProvider | Provides CRM services |
+| IPlugin | Base interface for all plugins |
+| IPluginExecutionContext | Contains runtime information |
+| Entity | Represents the current CRM record |
+| IOrganizationService | Performs CRUD operations |
+| ITracingService | Writes trace logs for debugging |
+
+---
+
+# Folder Structure
+
+```text
+04-Populate-Full-Name-Plugin
+│
+├── README.md
+├── Source-Code
+│   └── ASK1026PopulateFullName.cs
+│
+└── Images
+    ├── Create-Class-Library.png
+    ├── Sign-Assembly.png
+    ├── Register-Assembly.png
+    ├── Register-Step.png
+    └── Plugin-Output.png
+```
+
+---
+
+# Source Code
+
+The complete plugin implementation is available in the **Source-Code** folder.
+
+```
+Source-Code/
+    └── ASK1026PopulateFullName.cs
+```
+
+---
+
+# Output
+
+### Input
+
+| First Name | Last Name |
+|------------|-----------|
+| Sudheer | Varma |
+
+### Output
+
+| Full Name |
+|-----------|
+| Sudheer Varma |
+
+---
+
+# Common Issues
+
+### Plugin Not Executing
+
+Possible reasons:
+
+- Assembly not registered
+- Step not registered
+- Wrong entity selected
+- Wrong execution stage
+- DLL build failed
+
+---
+
+### Full Name Field Required
+
+If the **Full Name** field is configured as **Business Required**, Dynamics 365 validates the field before the plugin executes.
+
+Set the field requirement to **Optional** before testing.
+
+---
+
+### Strong Name Key Error
+
+If Visual Studio displays:
+
+```
+The operation could not be completed.
+```
+
+Run Visual Studio as **Administrator** and create the Strong Name Key again.
+
+---
+
+# Real-World Applications
+
+The same plugin pattern can be used for:
+
+- Auto-populating Full Name
+- Customer Name generation
+- Invoice Number generation
+- Order Number generation
+- Employee ID generation
+- Data validation
+- Default field population
+
+---
+
+# Interview Questions
+
+### Why do we implement `IPlugin`?
+
+Every Dynamics 365 plugin must implement the `IPlugin` interface so that the CRM platform can execute the custom business logic.
+
+---
+
+### What is `Execute()`?
+
+`Execute()` is the entry point of a plugin. Dynamics 365 calls this method whenever the registered event occurs.
+
+---
+
+### What is the Target Entity?
+
+The Target Entity represents the current CRM record being created, updated, or deleted.
+
+---
+
+### Why is `ITracingService` used?
+
+It is used to write trace logs that help debug plugin execution and identify runtime errors.
+
+---
+
+### Why use a Plugin instead of JavaScript?
+
+Plugins execute on the server, enforce business rules consistently, and cannot be bypassed by client-side changes.
+
+---
+
+### Why is Assembly Signing required?
+
+Dynamics 365 only allows strongly signed assemblies to be registered as plugins.
+
+---
+
+# Summary
+
+This project demonstrates the complete lifecycle of developing a Microsoft Dynamics 365 CRM Plugin. It covers creating a Class Library, implementing the `IPlugin` interface, writing business logic, signing the assembly, building the DLL, registering the plugin, configuring execution steps, and validating the functionality within Dynamics 365 CRM.
