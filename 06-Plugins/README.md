@@ -6,8 +6,8 @@ Plugins are server-side C# components that execute within the Microsoft Dynamics
 
 ## Topics Covered
 
-- C# Basics
 - Visual Studio Setup
+- C# Basics
 - Plugin Registration
 - Populate Full Name Plugin
 - SSC Marks Calculation Plugin
