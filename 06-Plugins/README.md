@@ -35,19 +35,57 @@ After completing this section, you will be able to:
 ## Folder Structure
 
 ```text
-06-Plugins
+📂 06-Plugins
 │
-├── 01-CSharp-Basics
-├── 02-Visual-Studio-Setup
-├── 03-Plugin-Registration
-├── 04-Populate-Full-Name-Plugin
-├── 05-SSC-Marks-Calculation-Plugin
-├── 06-Copy-Source-To-Target-Plugin
-├── 07-Plugin-Execution-Pipeline
-├── 08-Plugin-Images
-├── 09-Plugin-Trace-Logs
-├── 10-Retrieve-and-RetrieveMultiple
-├── 11-Exception-Handling
-├── 12-Audit-History
-└── 13-Plugin-Debugging
-```
+├── 📂 01-Visual-Studio-Setup
+│   ├── README.md
+│   └── Images
+│
+├── 📂 02-CSharp-Basics
+│   ├── README.md
+│   ├── Console-Application
+│   ├── Class-Library
+│   └── Images
+│
+├── 📂 03-Plugin-Registration
+│   ├── README.md
+│   └── Images
+│
+├── 📂 04-Populate-Full-Name-Plugin
+│   ├── README.md
+│   ├── Source-Code
+│   └── Images
+│
+├── 📂 05-SSC-Marks-Calculation-Plugin
+│   ├── README.md
+│   ├── Source-Code
+│   └── Images
+│
+├── 📂 06-Copy-Source-To-Target-Plugin
+│   ├── README.md
+│   ├── Source-Code
+│   └── Images
+│
+├── 📂 07-Plugin-Execution-Pipeline
+│   ├── README.md
+│   └── Images
+│
+├── 📂 08-Plugin-Images
+│   ├── README.md
+│   └── Images
+│
+├── 📂 09-Retrieve-and-RetrieveMultiple
+│   ├── README.md
+│   └── Images
+│
+├── 📂 10-Exception-Handling
+│   ├── README.md
+│   └── Images
+│
+├── 📂 11-Audit-History
+│   ├── README.md
+│   └── Images
+│
+└── 📂 12-Plugin-Debugging
+    ├── README.md
+    └── Images
