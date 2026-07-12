@@ -1,5 +1,3 @@
-02-Visual-Studio-Setup/README.md
-
 # Visual Studio 2022 Setup for Microsoft Dynamics 365 CRM Development
 
 ## Overview
